@@ -2,14 +2,16 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 
-// Mobile menu
+// ==============================
+// MOBILE MENU
+// ==============================
 
 menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
 
 
-// Close mobile menu after clicking a link
+// Close menu after clicking a link
 
 const navItems = document.querySelectorAll(".nav-links a");
 
@@ -22,7 +24,9 @@ navItems.forEach((link) => {
 });
 
 
-// Active navbar link
+// ==============================
+// ACTIVE NAVBAR LINK
+// ==============================
 
 const sections = document.querySelectorAll("section");
 
@@ -33,7 +37,6 @@ window.addEventListener("scroll", () => {
     sections.forEach((section) => {
 
         const sectionTop = section.offsetTop;
-
         const sectionHeight = section.offsetHeight;
 
         if (window.scrollY >= sectionTop - 150) {
@@ -41,7 +44,6 @@ window.addEventListener("scroll", () => {
         }
 
     });
-
 
     navItems.forEach((link) => {
 
@@ -55,30 +57,46 @@ window.addEventListener("scroll", () => {
 
 });
 
+
+// ==============================
+// CONTACT FORM
+// ==============================
+
 const contactForm = document.querySelector("#contactForm");
 const formMessage = document.querySelector("#formMessage");
 
-contactForm.addEventListener("submit", (event) => {
+if (contactForm) {
 
-    event.preventDefault();
+    contactForm.addEventListener("submit", (event) => {
 
-    formMessage.textContent =
-        "Thanks! Your message has been received.";
+        event.preventDefault();
 
-    formMessage.classList.add("success");
+        formMessage.textContent =
+            "Thanks! Your message has been received.";
 
-    contactForm.reset();
+        formMessage.classList.add("success");
 
-});
+        contactForm.reset();
+
+    });
+
+}
+
+
+// ==============================
+// CURSOR GLOW
+// ==============================
 
 const cursorGlow = document.querySelector(".cursor-glow");
 
-document.addEventListener("mousemove", (event) => {
+if (cursorGlow) {
 
-    cursorGlow.style.left = event.clientX + "px";
+    document.addEventListener("mousemove", (event) => {
 
-    cursorGlow.style.top = event.clientY + "px";
+        cursorGlow.style.left = event.clientX + "px";
+        cursorGlow.style.top = event.clientY + "px";
+        cursorGlow.style.opacity = "1";
 
-    cursorGlow.style.opacity = "1";
+    });
 
-});
+}
